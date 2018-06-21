@@ -39,7 +39,7 @@ export const createResponsive = defs => {
 
   Object.entries(defs).forEach(([ id, def ]) => {
     Object.entries(def).forEach(([ fieldName, fieldVal ]) => {
-      if (fieldVal) {
+      if (undefined !== fieldVal && null !== fieldVal) {
         if (fieldVal.bpw) {
           _appendToCollector(id, fieldName, fieldVal, 'bpw', base, widthBreakpoints)
         }

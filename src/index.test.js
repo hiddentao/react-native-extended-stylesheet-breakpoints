@@ -125,6 +125,7 @@ describe('createResponsive', () => {
 
     const final = createResponsive({
       button: {
+        borderSize: 0,
         border: 1,
         margin: perWidth(20, 10, 5),
         padding: perHeight(13, 7, 2)
@@ -137,6 +138,7 @@ describe('createResponsive', () => {
     expect(final).toEqual({
       _created: {
         button: {
+          borderSize: 0,
           border: 1,
           margin: 20,
           padding: 13
