@@ -1,0 +1,54 @@
+{
+  "name": "react-native-extended-stylesheet-breakpoints",
+  "version": "1.0.0",
+  "description": "Smart @media query generation for react-native-extended-stylesheet using configurable breakpoints",
+  "main": "index.js",
+  "repository": "https://github.com/hiddentao/react-native-extended-stylesheet-breakpoints.git",
+  "author": "Ramesh Nair <ram@hiddentao.com>",
+  "license": "MIT",
+  "private": false,
+  "files": [
+    "src/*.js",
+    "dist/*.js"
+  ],
+  "scripts": {
+    "build": "babel --ignore test.js,__fixtures__ --out-dir dist src",
+    "prepublish": "yarn lint && yarn test && yarn build",
+    "lint": "eslint ./src",
+    "test": "jest",
+    "test:coverage": "jest --coverage",
+    "test:watch": "jest --watch"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.0",
+    "babel-eslint": "^8.2.3",
+    "babel-jest-assertions": "^0.1.0",
+    "babel-preset-env": "^1.6.1",
+    "eslint": "^4.8.0",
+    "eslint-config-airbnb-base": "^12.0.0",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-node": "^5.1.1",
+    "eslint-plugin-promise": "^3.5.0",
+    "eslint-plugin-react": "^7.1.0",
+    "eslint-plugin-standard": "^3.0.1",
+    "jest": "^21.2.1",
+    "react-native-extended-stylesheet": "^0.8.1"
+  },
+  "jest": {
+    "roots": [
+      "./src/"
+    ],
+    "testMatch": [
+      "**/?(*.)test.js"
+    ],
+    "collectCoverageFrom": [
+      "**/*.js"
+    ],
+    "coverageReporters": [
+      "html",
+      "text",
+      "text-summary"
+    ]
+  }
+}
