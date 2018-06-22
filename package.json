@@ -17,7 +17,8 @@
     "lint": "eslint ./src",
     "test": "jest",
     "test:coverage": "jest --coverage",
-    "test:watch": "jest --watch"
+    "test:watch": "jest --watch",
+    "codecov": "codecov"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
@@ -26,6 +27,7 @@
     "babel-jest-assertions": "^0.1.0",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-preset-env": "^1.6.1",
+    "codecov": "^3.0.2",
     "eslint": "^4.8.0",
     "eslint-config-airbnb-base": "^12.0.0",
     "eslint-plugin-import": "^2.7.0",

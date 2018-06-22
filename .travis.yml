@@ -7,7 +7,9 @@ node_js:
 cache: yarn
 
 script:
-  - "yarn test"
+  - "yarn lint"
+  - "yarn test:coverage"
+  - "yarn codecov"
 
 notifications:
   email:
