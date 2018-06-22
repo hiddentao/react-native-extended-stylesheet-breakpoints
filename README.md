@@ -1,6 +1,7 @@
 # react-native-extended-stylesheet-breakpoints
 
 [![Build Status](https://secure.travis-ci.org/hiddentao/react-native-extended-stylesheet-breakpoints.svg?branch=master)](http://travis-ci.org/hiddentao/react-native-extended-stylesheet-breakpoints)
+[![codecov](https://codecov.io/gh/hiddentao/react-native-extended-stylesheet-breakpoints/branch/master/graph/badge.svg)](https://codecov.io/gh/hiddentao/react-native-extended-stylesheet-breakpoints)
 [![Follow on Twitter](https://img.shields.io/twitter/url/http/shields.io.svg?style=social&label=Follow&maxAge=2592000)](https://twitter.com/hiddentao)
 
 This package enables `@media` queries to be auto-generated when using [`react-native-extended-stylesheet`](https://github.com/vitalets/react-native-extended-stylesheet#media-queries).
