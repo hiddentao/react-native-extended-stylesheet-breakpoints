@@ -43,16 +43,18 @@ const styles = EStyleSheet.create({
 You can now instead write the above much more succinctly:
 
 ```js
+import EStyleSheet from 'react-native-extended-stylesheet'
+
 import {
   setWidthBreakpoints,
   setHeightBreakpoints,
-  createResponsive
+  parse
 } from 'react-native-extended-stylesheet-breakpoints'
 
 const perWidth = setWidthBreakpoints(800, 400)
 const perHeight = setHeightBreakpoints(500)
 
-const styles = createResponsive({
+const styles = EStyleSheet.create(parse({
   button: {
     width: perWidth(500, 350, 200),
     height: perHeight(500, 250)
@@ -60,12 +62,13 @@ const styles = createResponsive({
   input: {
     paddingHorizontal: perWidth(50, 50, 20)
   }
-})
+}))
 ```
 
 ## Installation
 
-This package depends on `react-native-extended-stylesheet`.
+This package does not direclty depend on `react-native-extended-stylesheet` but
+isn't really useful without it so install that too.
 
 ```shell
 yarn add react-native-extended-stylesheet react-native-extended-stylesheet-breakpoints
@@ -82,7 +85,7 @@ be used to set per-breakpoint field values. For example:
 /* 3 breakpoints - 800px, 400px, 200px */
 const perWidth = setWidthBreakpoints(800, 400, 200)
 
-const styles = createResponsive({
+const styles = EStyleSheet.create(parse({
   button: {
     /*
       Default color = red
@@ -113,17 +116,17 @@ const styles = createResponsive({
     */
     padding: 12
   }
-})
+}))
 ```
 
 **setHeightBreakpoints()**
 
 Sets up height-based breakpoints and works similarly to `setWidthBreakpoints()` above.
 
-**createResponsive()**
+**parse()**
 
 This must be used in conjunction with the breakpoint setters to generate the final
-correct stylesheet.
+correct style definitions to pass to `EStyleSheet.create()`.
 
 ## Development
 

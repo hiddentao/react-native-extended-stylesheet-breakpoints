@@ -1,5 +1,3 @@
-import EStyleSheet from 'react-native-extended-stylesheet'
-
 const _appendToKey = (obj, key, data) => {
   // eslint-disable-next-line no-param-reassign
   obj[key] = Object.assign({}, obj[key], data)
@@ -32,7 +30,7 @@ const _appendToCollector = (id, fieldName, fieldVal, bpKey, baseCollector, bpCol
   })
 }
 
-export const createResponsive = defs => {
+export const parse = defs => {
   const base = {}
   const widthBreakpoints = {}
   const heightBreakpoints = {}
@@ -73,5 +71,5 @@ export const createResponsive = defs => {
     )
   }
 
-  return EStyleSheet.create(final)
+  return final
 }

@@ -1,10 +1,4 @@
-import { setWidthBreakpoints, setHeightBreakpoints, createResponsive } from './'
-
-jest.mock('react-native-extended-stylesheet', () => ({
-  create: obj => ({
-    _created: obj
-  })
-}))
+import { setWidthBreakpoints, setHeightBreakpoints, parse } from './'
 
 describe('width', () => {
   it('can return breakpoint setter', () => {
@@ -96,10 +90,11 @@ describe('height', () => {
   })
 })
 
-describe('createResponsive', () => {
-  it('calls through to create()', () => {
-    const final = createResponsive({
+describe('parse', () => {
+  it('leaves normal values the same()', () => {
+    const final = parse({
       button: {
+        padding: 0,
         margin: 5
       },
       input: {
@@ -108,13 +103,12 @@ describe('createResponsive', () => {
     })
 
     expect(final).toEqual({
-      _created: {
-        button: {
-          margin: 5
-        },
-        input: {
-          color: '#fff'
-        }
+      button: {
+        padding: 0,
+        margin: 5
+      },
+      input: {
+        color: '#fff'
       }
     })
   })
@@ -123,7 +117,7 @@ describe('createResponsive', () => {
     const perWidth = setWidthBreakpoints(1000, 500, 200)
     const perHeight = setHeightBreakpoints(900, 400)
 
-    const final = createResponsive({
+    const final = parse({
       button: {
         borderSize: 0,
         border: 1,
@@ -136,46 +130,44 @@ describe('createResponsive', () => {
     })
 
     expect(final).toEqual({
-      _created: {
+      button: {
+        borderSize: 0,
+        border: 1,
+        margin: 20,
+        padding: 13
+      },
+      input: {
+        color: 'white'
+      },
+      '@media (max-width: 1000px)': {
         button: {
-          borderSize: 0,
-          border: 1,
-          margin: 20,
-          padding: 13
+          margin: 10
         },
         input: {
-          color: 'white'
+          color: 'black'
+        }
+      },
+      '@media (max-width: 500px)': {
+        button: {
+          margin: 5
         },
-        '@media (max-width: 1000px)': {
-          button: {
-            margin: 10
-          },
-          input: {
-            color: 'black'
-          }
-        },
-        '@media (max-width: 500px)': {
-          button: {
-            margin: 5
-          },
-          input: {
-            color: 'red'
-          }
-        },
-        '@media (max-width: 200px)': {
-          input: {
-            color: 'green'
-          }
-        },
-        '@media (max-height: 900px)': {
-          button: {
-            padding: 7
-          }
-        },
-        '@media (max-height: 400px)': {
-          button: {
-            padding: 2
-          }
+        input: {
+          color: 'red'
+        }
+      },
+      '@media (max-width: 200px)': {
+        input: {
+          color: 'green'
+        }
+      },
+      '@media (max-height: 900px)': {
+        button: {
+          padding: 7
+        }
+      },
+      '@media (max-height: 400px)': {
+        button: {
+          padding: 2
         }
       }
     })
